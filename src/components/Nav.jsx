@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useRef } from 'react';
 
-export default function Nav() {
+export default function Nav({statList, filter, onFilterChnage}) {
+    
     return (
-        <>
-            <p>네비바입니다!</p>
-        </>
+        <header>
+            <ul>
+                {statList.map((i)=>
+                <li key={i.code}>
+                    <button>{i.stat}</button>
+                </li>
+                )}
+            </ul>
+        </header>
     );
 }
 

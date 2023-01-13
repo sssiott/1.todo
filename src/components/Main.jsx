@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TodoItem from './TodoItem';
-
-export default function Main({itemList,setItemList}) {
-
+import Add from './Add';
+export default function Main() {
+    const [items, setItems] = useState([]);
     return (
-        <>
-            <p>메인입니다</p>
+        <main>
             <ul>
-                {itemList.map((item)=>{
-                    return <TodoItem item={item} key={item.itemID} itemList={itemList} setItemList={setItemList}/>
+                {items.map((i)=>{
+                    return <TodoItem key={i.id} item={i} onHandleItems={setItems} items={items}/>
                 })}
             </ul>
-        </>
+            <Add items={items} setItems={setItems}/>
+        </main>
     );
 }
 

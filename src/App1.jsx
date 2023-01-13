@@ -1,20 +1,19 @@
-import React, { useState } from 'react';
-import Add from './components/Add';
-import Main from './components/Main';
-import Nav from './components/Nav';
+import React, { useState } from "react";
+import Main from "./components/Main";
+import Nav from "./components/Nav";
 
 export default function App1() {
-
-    const [itemList, setItemList] = useState([]);
-    
-    return (
-        <>
-            <div>
-                <Nav />
-                <Main itemList={itemList} setItemList={setItemList}/>
-                <Add itemList={itemList} setItemList={setItemList}/>  
-            </div>
-        </>
-    );
+    const [filter, setFilter] = useState(status[0].stat)
+  return (
+    <>
+      <Nav statList={status} filter={filter} onFilterChange={setFilter}/>
+      <Main />
+    </>
+  );
 }
 
+const status = [
+    {stat:'All',code:'0'},
+    {stat:'Active',code:'1'},
+    {stat:'Complete',code:'2'},
+];
