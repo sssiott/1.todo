@@ -7,13 +7,13 @@ export default function App1() {
   return (
     <>
       <Nav statList={status} filter={filter} onFilterChange={setFilter}/>
-      <Main />
+      <Main filter={filter}/>
     </>
   );
 }
 
 const status = [
-    {stat:'All',code:'0'},
-    {stat:'Active',code:'1'},
-    {stat:'Complete',code:'2'},
+    {stat:'all',code:'0'},
+    {stat:'active',code:'1'},
+    {stat:'complete',code:'2'},
 ];

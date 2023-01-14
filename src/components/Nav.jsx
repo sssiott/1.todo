@@ -1,13 +1,16 @@
-import React, { useRef } from 'react';
+import React from 'react';
 
-export default function Nav({statList, filter, onFilterChnage}) {
+export default function Nav({statList, filter, onFilterChange}) {
+    const handlefilter = (e) => {
+        onFilterChange(e.target.value);
+    };
     
     return (
         <header>
             <ul>
                 {statList.map((i)=>
                 <li key={i.code}>
-                    <button>{i.stat}</button>
+                    <button onClick={handlefilter} value={i.stat}>{i.stat}</button>
                 </li>
                 )}
             </ul>
