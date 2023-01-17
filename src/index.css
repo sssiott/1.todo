@@ -8,8 +8,8 @@
 
 html.dark {
   --color-bg-2: #1a1c35;
-  --color-bg-3: #22243b;
-  --color-bg-1: #4e4e4e;
+  --color-bg-1: #22243b;
+  /* --color-bg-1: #4e4e4e; */
   --color-text: #fdfffd;
 }
 

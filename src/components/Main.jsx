@@ -1,12 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import TodoItem from "./TodoItem";
 import Add from "./Add";
 import styles from "./Main.module.css";
 
 export default function Main({ filter }) {
-  const [items, setItems] = useState([]);
-
+  const [items, setItems] = useState(readItem);
   const showItems = getItems(items, filter);
+
+  useEffect(()=> localStorage.setItem('todo',JSON.stringify(items)), [items])
 
   return (
     <main className={styles.container}>
@@ -36,4 +37,9 @@ function getItems(item, filter) {
     default:
       return item;
   }
+}
+
+function readItem (){
+  const items = localStorage.getItem('todo');
+  return items ? JSON.parse(items) : [];
 }
